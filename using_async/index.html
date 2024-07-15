@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Async/Await Example</title>
+</head>
+
+<body>
+    <button onclick="doFileThings()">Download File</button>
+    <button onclick="nonBlockingAlert()">Click Me Quickly!</button>
+    <script>
+        function downloadFile() {
+            return new Promise((resolve) => {
+                // fetch()
+                setTimeout(() => {
+                    console.log('File downloaded');
+                    let file = "Downloaded File";
+                    resolve(file);
+                }, 5000);
+            });
+        }
+
+        function processFile(file) {
+            console.log('Processing file:', file);
+            return "Processed File";
+        }
+
+        async function doFileThings() {
+            try {
+                const file = await downloadFile(); // Wait for the file to be downloaded
+                const processedFile = processFile(file); // Process the downloaded file
+                console.log(processedFile); // Log the processed file result
+            } catch (error) {
+                console.error('Error:', error);  // Handle any errors
+            }
+        }
+
+        function nonBlockingAlert() {
+            alert('You clicked me!');
+        }
+    </script>
+</body>
+
+</html>

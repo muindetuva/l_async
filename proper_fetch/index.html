@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blocking Example</title>
+</head>
+
+<body>
+
+    <button onclick="doFileThings()">Download File</button>
+
+
+    <button onclick="nonBlockingAlert()">Click Me Quickly!</button>
+
+
+
+    <script>
+        // function wait(milliseconds, message) {
+        //     setTimeout(() => console.log(message), 5000)
+        // }
+
+        // fetch();
+
+
+
+        function downloadFile() {
+            // wait(5000, 'download done');
+            setTimeout(() => console.log('File downloaded'), 5000)
+            return "Downloaded File"
+        }
+
+        function processFile(file) {
+            console.log('File processed')
+            return "Processed file"
+        }
+
+        function doFileThings() {
+            let file = downloadFile();
+            let processedFile = processFile(file);
+        }
+
+        function nonBlockingAlert() {
+            alert('You clicked me!');
+        }
+    </script>
+</body>
+
+</html>
